@@ -2,6 +2,7 @@
 
 import React from "react"
 import { Mail, Phone, MapPin } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -25,7 +26,7 @@ export default function ContactSection({ darkMode, formData, onInputChange, onSu
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   return (
-    <section id="contact" className={`py-16 h-screen px-4 sm:px-6 lg:px-8 flex items-center justify-center ${darkMode ? "bg-gray-800" : "bg-white"}`}>
+    <section id="contact" className={`py-16 min-h-screen px-4 sm:px-6 lg:px-8 flex items-center justify-center ${darkMode ? "bg-gray-800" : "bg-white"}`}>
       <div className="max-w-4xl mx-auto w-full" ref={ref}>
         <motion.div 
           className="text-center mb-16"
@@ -37,61 +38,61 @@ export default function ContactSection({ darkMode, formData, onInputChange, onSu
           <p className="text-lg text-gray-600 dark:text-gray-300">Let's discuss your next project or opportunity</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Info */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Left: Contact Info Card */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-8"
           >
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-            <div className="space-y-4">
-              <motion.div 
-                className="flex items-center"
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ duration: 0.4, delay: 0.4 }}
-              >
-                <Mail className="h-5 w-5 text-blue-600 mr-3" />
-                <span>your.email@example.com</span>
-              </motion.div>
-              <motion.div 
-                className="flex items-center"
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ duration: 0.4, delay: 0.5 }}
-              >
-                <Phone className="h-5 w-5 text-blue-600 mr-3" />
-                <span>+1 (555) 123-4567</span>
-              </motion.div>
-              <motion.div 
-                className="flex items-center"
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ duration: 0.4, delay: 0.6 }}
-              >
-                <MapPin className="h-5 w-5 text-blue-600 mr-3" />
-                <span>Available for remote work worldwide</span>
-              </motion.div>
-            </div>
-
-            <motion.div 
-              className="mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-            >
-              <h4 className="text-lg font-semibold mb-4">Experience Highlights</h4>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>• 6 months of international development experience</li>
-                <li>• Full-stack web application development</li>
-                <li>• Modern JavaScript frameworks and libraries</li>
-                <li>• Database design and optimization</li>
-              </ul>
-            </motion.div>
+            <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 flex items-center justify-center">
+                      <Mail className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500 font-medium">Email</p>
+                      <p className="text-gray-800 font-semibold">your.email@example.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 flex items-center justify-center">
+                      <Phone className="w-5 h-5 text-green-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500 font-medium">Phone</p>
+                      <p className="text-gray-800 font-semibold">+1(555) 123-4567</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500 font-medium">Location</p>
+                      <p className="text-gray-800 font-semibold">Available for remote work worldwide</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">Experience Highlights</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-3"><div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mt-2 flex-shrink-0"></div><span className="text-gray-700">6 months of international development experience</span></li>
+                  <li className="flex items-start space-x-3"><div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mt-2 flex-shrink-0"></div><span className="text-gray-700">Full-stack web application development</span></li>
+                  <li className="flex items-start space-x-3"><div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mt-2 flex-shrink-0"></div><span className="text-gray-700">Modern JavaScript frameworks and libraries</span></li>
+                  <li className="flex items-start space-x-3"><div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mt-2 flex-shrink-0"></div><span className="text-gray-700">Database design and optimization</span></li>
+                </ul>
+              </CardContent>
+            </Card>
           </motion.div>
-
-          {/* Contact Form */}
+          {/* Right: Contact Form (unchanged) */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}

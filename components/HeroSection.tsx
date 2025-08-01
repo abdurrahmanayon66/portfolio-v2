@@ -3,8 +3,8 @@ import { Download, Mail, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import image from '../images/formal.webp';
-import Image from 'next/image';
+import image from "../images/formal.webp";
+import Image from "next/image";
 
 interface HeroSectionProps {
   onDownloadResume: () => void;
@@ -29,17 +29,17 @@ export default function HeroSection({ onDownloadResume }: HeroSectionProps) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-                <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 p-1 shadow-2xl">
-                  <div className="w-full h-full rounded-full bg-white">
-                    <Image
-                      src={image}
-                      alt="Portfolio hero image"
-                      width={160}
-                      height={160}
-                      className="w-full h-full rounded-full object-contain"
-                    />
-                  </div>
-                </div>
+            <div className="size-32 sm:size-40 lg:size-64 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 p-1 shadow-2xl">
+              <div className="w-full h-full rounded-full bg-white">
+                <Image
+                  src={image}
+                  alt="Portfolio hero image"
+                  width={160}
+                  height={160}
+                  className="w-full h-full rounded-full object-contain"
+                />
+              </div>
+            </div>
           </motion.div>
           <motion.h1
             className="text-4xl sm:text-6xl font-bold mb-6"
@@ -49,6 +49,8 @@ export default function HeroSection({ onDownloadResume }: HeroSectionProps) {
           >
             <TypeAnimation
               sequence={[
+                "Hi, I'm Ayon!",
+                2000,
                 "Full Stack Developer",
                 2000,
                 "Software Engineer",
@@ -57,9 +59,11 @@ export default function HeroSection({ onDownloadResume }: HeroSectionProps) {
                 2000,
                 "Redux, Tailwind CSS, Shadcn UI",
                 2000,
-                "Express.js, MongoDB, PostgreSQL, GraphQL",
+                "Express.js, REST API, GraphQL",
                 2000,
-                "Prisma, Socket.io, Next Auth, OAuth",
+                "Prisma, Socket.io, OAuth 2.0",
+                2000,
+                "MySQL, MongoDB, PostgreSQL",
                 2000,
               ]}
               wrapper="span"
