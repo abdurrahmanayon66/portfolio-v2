@@ -8,6 +8,8 @@ import Navigation from "@/components/Navigation";
 import { HeroParallaxDemo } from "@/components/HeroParallaxDemo";
 import SkillsSection from "@/components/SkillsSection";
 import { TimelineDemo } from "@/components/TimelineDemo";
+import { ProjectsShowcase } from "@/components/ProjectsShowcase";
+import { WhyChooseMe } from "@/components/WhyChooseMe";
 import ContactSection from "@/components/ContactSection";
 import ResumeSection from "@/components/ResumeSection";
 import Footer from "@/components/Footer";
@@ -55,6 +57,8 @@ export default function Portfolio() {
       <Navigation darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
       <HeroParallaxDemo />
       <SkillsSection darkMode={darkMode} />
+      <ProjectsShowcase darkMode={darkMode} />
+      <WhyChooseMe darkMode={darkMode} />
       <TimelineDemo />
       <ResumeSection darkMode={darkMode} onDownloadResume={downloadResume} />
       <ContactSection
