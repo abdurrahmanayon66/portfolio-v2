@@ -168,23 +168,63 @@ export default function SkillsSection({ darkMode }: SkillsSectionProps) {
                   </div>
                   
                   <div className="space-y-4">
-                    {category.skills.map((skill, skillIndex) => (
-                      <motion.div
-                        key={skill}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                        transition={{ 
-                          delay: 0.5 + (index * 0.2) + (skillIndex * 0.05),
-                          duration: 0.4 
-                        }}
-                        className="flex items-center gap-3 group/skill"
-                      >
-                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color} group-hover/skill:scale-150 transition-transform duration-300`}></div>
-                        <span className="text-gray-200 text-lg font-medium group-hover/skill:text-white transition-colors duration-300">
-                          {skill}
-                        </span>
-                      </motion.div>
-                    ))}
+                                         {category.skills.map((skill, skillIndex) => {
+                       // Define icons for each skill
+                       const skillIcons: { [key: string]: React.ReactNode } = {
+                         // Frontend icons
+                         "React": <Code className="w-4 h-4" />,
+                         "Next.js": <Code className="w-4 h-4" />,
+                         "TypeScript": <Code className="w-4 h-4" />,
+                         "JavaScript": <Code className="w-4 h-4" />,
+                         "HTML5": <Code className="w-4 h-4" />,
+                         "CSS3": <Palette className="w-4 h-4" />,
+                         "Tailwind CSS": <Palette className="w-4 h-4" />,
+                         "Redux": <Database className="w-4 h-4" />,
+                         "Vue.js": <Code className="w-4 h-4" />,
+                         
+                         // Backend icons
+                         "Node.js": <Cpu className="w-4 h-4" />,
+                         "Express.js": <Cpu className="w-4 h-4" />,
+                         "MongoDB": <Database className="w-4 h-4" />,
+                         "PostgreSQL": <Database className="w-4 h-4" />,
+                         "REST APIs": <Globe className="w-4 h-4" />,
+                         "GraphQL": <Globe className="w-4 h-4" />,
+                         "JWT": <Shield className="w-4 h-4" />,
+                         "Prisma": <Database className="w-4 h-4" />,
+                         
+                         // Tools & DevOps icons
+                         "Git": <GitBranch className="w-4 h-4" />,
+                         "Docker": <Cloud className="w-4 h-4" />,
+                         "AWS": <Cloud className="w-4 h-4" />,
+                         "Vercel": <Cloud className="w-4 h-4" />,
+                         "Figma": <Palette className="w-4 h-4" />,
+                         "Postman": <Globe className="w-4 h-4" />,
+                         "Jest": <Zap className="w-4 h-4" />,
+                         "Cypress": <Zap className="w-4 h-4" />
+                       }
+                       
+                       return (
+                         <motion.div
+                           key={skill}
+                           initial={{ opacity: 0, x: -20 }}
+                           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                           transition={{ 
+                             delay: 0.5 + (index * 0.2) + (skillIndex * 0.05),
+                             duration: 0.4 
+                           }}
+                           className="group/skill"
+                         >
+                           <div className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group-hover/skill:scale-105">
+                             <div className={`w-8 h-8 rounded-lg bg-gradient-to-r ${category.color} flex items-center justify-center shadow-lg group-hover/skill:scale-110 transition-transform duration-300`}>
+                               {skillIcons[skill] || <Code className="w-4 h-4" />}
+                             </div>
+                             <span className="text-gray-200 text-lg font-medium group-hover/skill:text-white transition-colors duration-300">
+                               {skill}
+                             </span>
+                           </div>
+                         </motion.div>
+                       )
+                     })}
                   </div>
                 </div>
               </div>
