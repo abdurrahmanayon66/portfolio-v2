@@ -5,9 +5,8 @@ import { useState } from "react";
 
 // Import components
 import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
+import { HeroParallaxDemo } from "@/components/HeroParallaxDemo";
 import SkillsSection from "@/components/SkillsSection";
-import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import ResumeSection from "@/components/ResumeSection";
 import Footer from "@/components/Footer";
@@ -53,8 +52,7 @@ export default function Portfolio() {
       }`}
     >
       <Navigation darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
-      <HeroSection onDownloadResume={downloadResume} />
-      <ProjectsSection darkMode={darkMode} />
+      <HeroParallaxDemo />
       <SkillsSection darkMode={darkMode} />
       <ResumeSection darkMode={darkMode} onDownloadResume={downloadResume} />
       <ContactSection
