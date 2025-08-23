@@ -33,7 +33,7 @@ export default function HeroSection({ onDownloadResume }: HeroSectionProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="size-32 sm:size-40 lg:size-64 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 p-1 shadow-2xl">
-              <div className="w-full h-full rounded-full bg-white">
+              <div className="w-full h-full rounded-full">
                 <Image
                   src={image}
                   alt="Portfolio hero image"

@@ -1,5 +1,4 @@
 "use client"
-
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
@@ -17,10 +16,6 @@ import {
   Cloud,
   GitBranch
 } from "lucide-react"
-
-interface SkillsSectionProps {
-  darkMode: boolean
-}
 
 const skillCategories = [
   {
@@ -61,7 +56,7 @@ const floatingIcons = [
   { icon: <GitBranch className="h-7 w-7" />, color: "text-orange-400", delay: 4 }
 ]
 
-export default function SkillsSection({ darkMode }: SkillsSectionProps) {
+export default function SkillsSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 

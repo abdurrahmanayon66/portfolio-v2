@@ -99,7 +99,7 @@ export function TimelineDemo() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
       
       {/* Floating background elements */}
       <div className="absolute inset-0 overflow-hidden">

@@ -15,16 +15,11 @@ import ResumeSection from "@/components/ResumeSection";
 import Footer from "@/components/Footer";
 
 export default function Portfolio() {
-  const [darkMode, setDarkMode] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -49,26 +44,21 @@ export default function Portfolio() {
   };
 
   return (
-    <div
-      className={`min-h-screen transition-colors duration-300 ${
-        darkMode ? "dark bg-gray-900 text-white" : "bg-gray-50 text-gray-900"
-      }`}
-    >
-      <Navigation darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+      <Navigation />
       <HeroParallaxDemo />
-      <SkillsSection darkMode={darkMode} />
-      <ProjectsShowcase darkMode={darkMode} />
-      <WhyChooseMe darkMode={darkMode} />
+      <SkillsSection />
+      <ProjectsShowcase />
+      <WhyChooseMe />
       <TimelineDemo />
-      <ResumeSection darkMode={darkMode} onDownloadResume={downloadResume} />
+      <ResumeSection onDownloadResume={downloadResume} />
       <ContactSection
-        darkMode={darkMode}
         formData={formData}
         onInputChange={handleInputChange}
         onSubmit={handleSubmit}
       />
 
-      <Footer darkMode={darkMode} />
+      <Footer />
     </div>
   );
 }

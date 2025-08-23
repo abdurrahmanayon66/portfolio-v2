@@ -14,11 +14,7 @@ interface Project {
   content: () => React.ReactNode;
 }
 
-interface ProjectsShowcaseProps {
-  darkMode: boolean;
-}
-
-export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
+export function ProjectsShowcase() {
   const [active, setActive] = useState<Project | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
@@ -40,7 +36,7 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [active]);
 
-  const useOutsideClick = (ref: React.RefObject<HTMLElement>, callback: () => void) => {
+  const useOutsideClick = (ref: React.RefObject<HTMLDivElement | null>, callback: () => void) => {
     useEffect(() => {
       function handleClickOutside(event: MouseEvent) {
         if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -55,8 +51,11 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -67,7 +66,7 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-l from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             A showcase of my recent work and personal projects
           </p>
         </motion.div>
@@ -92,16 +91,16 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.05 } }}
-                className="flex absolute top-4 right-4 lg:hidden items-center justify-center bg-white dark:bg-gray-800 rounded-full h-10 w-10 shadow-lg"
+                className="flex absolute top-4 right-4 lg:hidden items-center justify-center bg-gray-800 rounded-full h-10 w-10 shadow-lg"
                 onClick={() => setActive(null)}
               >
-                <X className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+                <X className="h-5 w-5 text-gray-300" />
               </motion.button>
               
               <motion.div
                 layoutId={`card-${active.title}-${id}`}
                 ref={ref}
-                className="w-full max-w-4xl h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-2xl"
+                className="w-full max-w-4xl h-full md:h-fit md:max-h-[90%] flex flex-col bg-gray-900 rounded-3xl overflow-hidden shadow-2xl"
               >
                 <motion.div layoutId={`image-${active.title}-${id}`} className="relative">
                   <img
@@ -119,13 +118,13 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
                     <div className="flex-1">
                       <motion.h3
                         layoutId={`title-${active.title}-${id}`}
-                        className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2"
+                        className="text-2xl font-bold text-gray-200 mb-2"
                       >
                         {active.title}
                       </motion.h3>
                       <motion.p
                         layoutId={`description-${active.description}-${id}`}
-                        className="text-gray-600 dark:text-gray-400 text-sm"
+                        className="text-gray-400 text-sm"
                       >
                         {active.description}
                       </motion.p>
@@ -148,7 +147,7 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
                          href={active.githubUrl}
                          target="_blank"
                          rel="noopener noreferrer"
-                         className="px-6 py-3 text-sm rounded-full font-semibold bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors flex items-center gap-2"
+                         className="px-6 py-3 text-sm rounded-full font-semibold bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors flex items-center gap-2"
                        >
                          <Github className="h-4 w-4" />
                          Code
@@ -161,7 +160,7 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
                       {active.technologies.map((tech, index) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 rounded-full"
+                          className="px-3 py-1 text-xs font-medium bg-purple-900 text-purple-200 rounded-full"
                         >
                           {tech}
                         </span>
@@ -169,7 +168,7 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
                     </div>
 
                     <div className="pt-4 relative">
-                      <h4 className="font-bold text-gray-800 dark:text-gray-200 mb-4">
+                      <h4 className="font-bold text-gray-200 mb-4">
                         Project Details
                       </h4>
                       <motion.div
@@ -177,7 +176,7 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-h-60 overflow-y-auto pr-2"
+                        className="text-gray-400 text-sm leading-relaxed max-h-60 overflow-y-auto pr-2"
                       >
                         {active.content()}
                       </motion.div>
@@ -195,9 +194,7 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
               layoutId={`card-${project.title}-${id}`}
               key={`card-${project.title}-${id}`}
               onClick={() => setActive(project)}
-              className={`p-6 flex flex-col md:flex-row justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-800 rounded-2xl cursor-pointer transition-all duration-300 border border-gray-200 dark:border-gray-700 ${
-                darkMode ? "bg-gray-900" : "bg-white"
-              }`}
+              className="p-6 flex flex-col md:flex-row justify-between items-center hover:bg-gray-800 rounded-2xl cursor-pointer transition-all duration-300 border border-gray-700 bg-gray-900"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -216,13 +213,13 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
                 <div className="text-center md:text-left">
                   <motion.h3
                     layoutId={`title-${project.title}-${id}`}
-                    className="font-bold text-gray-800 dark:text-gray-200 text-lg mb-2"
+                    className="font-bold text-gray-200 text-lg mb-2"
                   >
                     {project.title}
                   </motion.h3>
                   <motion.p
                     layoutId={`description-${project.description}-${id}`}
-                    className="text-gray-600 dark:text-gray-400 text-sm mb-3"
+                    className="text-gray-400 text-sm mb-3"
                   >
                     {project.description}
                   </motion.p>
@@ -230,13 +227,13 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
                     {project.technologies.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 rounded-full"
+                        className="px-2 py-1 text-xs font-medium bg-purple-900 text-purple-200 rounded-full"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 3 && (
-                      <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-full">
+                      <span className="px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded-full">
                         +{project.technologies.length - 3} more
                       </span>
                     )}
@@ -247,7 +244,7 @@ export function ProjectsShowcase({ darkMode }: ProjectsShowcaseProps) {
                 layoutId={`button-${project.title}-${id}`}
                 className="mt-4 md:mt-0"
               >
-                <button className="px-6 py-3 text-sm rounded-full font-semibold bg-gray-100 hover:bg-purple-600 hover:text-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-purple-600 transition-all duration-300 flex items-center gap-2">
+                <button className="px-6 py-3 text-sm rounded-full font-semibold bg-gray-800 text-gray-300 hover:bg-purple-600 hover:text-white transition-all duration-300 flex items-center gap-2">
                   <ExternalLink className="h-4 w-4" />
                   View Project
                 </button>

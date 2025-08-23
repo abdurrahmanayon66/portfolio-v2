@@ -7,11 +7,10 @@ import { useInView } from "framer-motion"
 import { useRef } from "react"
 
 interface ResumeSectionProps {
-  darkMode: boolean
   onDownloadResume: () => void
 }
 
-export default function ResumeSection({ darkMode, onDownloadResume }: ResumeSectionProps) {
+export default function ResumeSection({ onDownloadResume }: ResumeSectionProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
@@ -32,7 +31,7 @@ export default function ResumeSection({ darkMode, onDownloadResume }: ResumeSect
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-screen flex items-center">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
       
       {/* Floating background elements */}
       <div className="absolute inset-0 overflow-hidden">

@@ -5,11 +5,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-interface WhyChooseMeProps {
-  darkMode: boolean;
-}
-
-export function WhyChooseMe({ darkMode }: WhyChooseMeProps) {
+export function WhyChooseMe() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
@@ -71,8 +67,11 @@ export function WhyChooseMe({ darkMode }: WhyChooseMeProps) {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white">
-      <div className="max-w-7xl mx-auto" ref={ref}>
+    <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10" ref={ref}>
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -103,7 +102,7 @@ export function WhyChooseMe({ darkMode }: WhyChooseMeProps) {
             className="group md:col-span-7 md:row-span-2"
           >
             <div className={`relative h-full rounded-2xl border border-gray-800 p-6 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] ${
-              darkMode ? "bg-gray-900/50" : "bg-gray-800/50"
+              "bg-gray-900/50"
             }`}>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
@@ -130,7 +129,7 @@ export function WhyChooseMe({ darkMode }: WhyChooseMeProps) {
             className="group md:col-span-5 md:row-span-1"
           >
             <div className={`relative h-full rounded-2xl border border-gray-800 p-6 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] ${
-              darkMode ? "bg-gray-900/50" : "bg-gray-800/50"
+              "bg-gray-900/50"
             }`}>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
@@ -157,7 +156,7 @@ export function WhyChooseMe({ darkMode }: WhyChooseMeProps) {
             className="group md:col-span-5 md:row-span-1"
           >
             <div className={`relative h-full rounded-2xl border border-gray-800 p-6 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] ${
-              darkMode ? "bg-gray-900/50" : "bg-gray-800/50"
+              "bg-gray-900/50"
             }`}>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
@@ -184,7 +183,7 @@ export function WhyChooseMe({ darkMode }: WhyChooseMeProps) {
             className="group md:col-span-3 md:row-span-1"
           >
             <div className={`relative h-full rounded-2xl border border-gray-800 p-4 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] ${
-              darkMode ? "bg-gray-900/50" : "bg-gray-800/50"
+              "bg-gray-900/50"
             }`}>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
@@ -211,7 +210,7 @@ export function WhyChooseMe({ darkMode }: WhyChooseMeProps) {
             className="group md:col-span-3 md:row-span-1"
           >
             <div className={`relative h-full rounded-2xl border border-gray-800 p-4 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] ${
-              darkMode ? "bg-gray-900/50" : "bg-gray-800/50"
+              "bg-gray-900/50"
             }`}>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
@@ -238,7 +237,7 @@ export function WhyChooseMe({ darkMode }: WhyChooseMeProps) {
             className="group md:col-span-6 md:row-span-1"
           >
             <div className={`relative h-full rounded-2xl border border-gray-800 p-6 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] ${
-              darkMode ? "bg-gray-900/50" : "bg-gray-800/50"
+              "bg-gray-900/50"
             }`}>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               

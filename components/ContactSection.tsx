@@ -10,7 +10,6 @@ import { useInView } from "framer-motion"
 import { useRef } from "react"
 
 interface ContactSectionProps {
-  darkMode: boolean
   formData: {
     name: string
     email: string
@@ -20,7 +19,7 @@ interface ContactSectionProps {
   onSubmit: (e: React.FormEvent) => void
 }
 
-export default function ContactSection({ darkMode, formData, onInputChange, onSubmit }: ContactSectionProps) {
+export default function ContactSection({ formData, onInputChange, onSubmit }: ContactSectionProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
@@ -64,7 +63,7 @@ export default function ContactSection({ darkMode, formData, onInputChange, onSu
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-screen flex items-center">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
       
       {/* Floating background elements */}
       <div className="absolute inset-0 overflow-hidden">
