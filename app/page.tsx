@@ -52,17 +52,17 @@ export default function Portfolio() {
       <section id="about">
         <AboutMe />
       </section>
-      <section id="skills">
-        <SkillsSection />
-      </section>
       <section id="projects">
         <ProjectsShowcase />
       </section>
-      <WhyChooseMe />
+      <section id="skills">
+        <SkillsSection />
+      </section>
       <TimelineDemo />
       <section id="resume">
         <ResumeSection onDownloadResume={downloadResume} />
       </section>
+      <WhyChooseMe />
       <section id="contact">
         <ContactSection
           formData={formData}
