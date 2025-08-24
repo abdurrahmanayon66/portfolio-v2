@@ -1,59 +1,58 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Database, Globe, Zap, Smartphone, Palette, Cloud, GitBranch, Cpu, Shield } from "lucide-react";
-import img from "../images/formal.webp"
 import Image from "next/image";
+import img from "../images/formal.webp";
+import {
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiExpress,
+  SiTypescript,
+  SiReactquery,
+  SiPostgresql,
+  SiMongodb,
+  SiGraphql,
+  SiRedux,
+} from "react-icons/si";
 
 const OrbitingCircles = () => {
   const techIcons = [
-    { Icon: Code, color: "text-blue-400", label: "Frontend" },
-    { Icon: Database, color: "text-green-400", label: "Database" },
-    { Icon: Globe, color: "text-purple-400", label: "Web" },
-    { Icon: Zap, color: "text-yellow-400", label: "Performance" },
-    { Icon: Smartphone, color: "text-pink-400", label: "Mobile" },
-    { Icon: Palette, color: "text-orange-400", label: "Design" },
-    { Icon: Cloud, color: "text-cyan-400", label: "Cloud" },
-    { Icon: GitBranch, color: "text-red-400", label: "Version Control" },
+    { Icon: SiNextdotjs, color: "#ffffff", label: "Next.js" }, // Black
+    { Icon: SiReact, color: "#61DAFB", label: "React" }, // React Blue
+    { Icon: SiTailwindcss, color: "#06B6D4", label: "Tailwind CSS" }, // Tailwind Cyan
+    { Icon: SiTypescript, color: "#3178C6", label: "TypeScript" }, // TS Blue
+    { Icon: SiExpress, color: "#808080", label: "Express.js" }, // Gray
+    { Icon: SiReactquery, color: "#FF4154", label: "React Query" }, // Red/Pink
+    { Icon: SiPostgresql, color: "#336791", label: "PostgreSQL" }, // PG Blue
+    { Icon: SiMongodb, color: "#47A248", label: "MongoDB" }, // Green
+    { Icon: SiGraphql, color: "#E10098", label: "GraphQL" }, // Pink
+    { Icon: SiRedux, color: "#764ABC", label: "Redux Toolkit" }, // Purple
   ];
 
   const orbitVariants = {
     orbit: {
       rotate: 360,
-      transition: {
-        duration: 20,
-        ease: "linear" as const,
-        repeat: Infinity,
-      },
+      transition: { duration: 20, ease: "linear" as const, repeat: Infinity },
     },
   };
 
   const reverseOrbitVariants = {
     orbit: {
       rotate: -360,
-      transition: {
-        duration: 25,
-        ease: "linear" as const,
-        repeat: Infinity,
-      },
+      transition: { duration: 25, ease: "linear" as const, repeat: Infinity },
     },
   };
 
   const iconVariants = {
-    hover: {
-      scale: 1.2,
-      transition: {
-        duration: 0.3,
-      },
-    },
+    hover: { scale: 1.2, transition: { duration: 0.3 } },
   };
 
   return (
-      <div className="relative w-[28rem] h-[28rem] lg:w-[36rem] lg:h-[36rem]">
-      {/* Center Profile Image */}
+    <div className="relative w-[28rem] h-[28rem] lg:w-[36rem] lg:h-[36rem]">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative">
-            <div className="w-48 h-48 lg:w-[320px] lg:h-[320px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-1">
+          <div className="w-48 h-48 lg:w-[320px] lg:h-[320px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-1">
             <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center overflow-hidden">
               <Image
                 src={img}
@@ -62,23 +61,20 @@ const OrbitingCircles = () => {
               />
             </div>
           </div>
-          {/* Glow effect */}
-          {/* <div className="absolute inset-0 rounded-full bg-purple-500/20 blur-xl animate-pulse"></div> */}
         </div>
       </div>
 
-      {/* First Orbit - Outer */}
+      {/* Outer Orbit */}
       <motion.div
         className="absolute inset-8 border border-purple-500/20 rounded-full"
         variants={orbitVariants}
         animate="orbit"
       >
-          {techIcons.slice(0, 4).map((tech, index) => {
-            const angle = (index * 90) - 45;
-            const radius = 260;
-            const x = Math.cos((angle * Math.PI) / 180) * radius;
-            const y = Math.sin((angle * Math.PI) / 180) * radius;
-
+        {techIcons.slice(0, 5).map((tech, index) => {
+          const angle = index * 72 - 36;
+          const radius = 265;
+          const x = Math.cos((angle * Math.PI) / 180) * radius;
+          const y = Math.sin((angle * Math.PI) / 180) * radius;
           return (
             <motion.div
               key={tech.label}
@@ -93,29 +89,31 @@ const OrbitingCircles = () => {
                 rotate: -360,
                 transition: {
                   duration: 20,
-                  ease: "linear" as const,
+                  ease: "linear",
                   repeat: Infinity,
                 },
               }}
             >
-              <tech.Icon className={`w-6 h-6 lg:w-7 lg:h-7 ${tech.color}`} />
+              <tech.Icon
+                className="w-7 h-7 lg:w-8 lg:h-8"
+                style={{ color: tech.color }}
+              />
             </motion.div>
           );
         })}
       </motion.div>
 
-      {/* Second Orbit - Inner */}
+      {/* Inner Orbit */}
       <motion.div
         className="absolute inset-24 border border-blue-500/20 rounded-full"
         variants={reverseOrbitVariants}
         animate="orbit"
       >
-          {techIcons.slice(4, 8).map((tech, index) => {
-            const angle = (index * 90);
-            const radius = 200;
-            const x = Math.cos((angle * Math.PI) / 180) * radius;
-            const y = Math.sin((angle * Math.PI) / 180) * radius;
-
+        {techIcons.slice(5, 10).map((tech, index) => {
+          const angle = index * 72;
+          const radius = 200;
+          const x = Math.cos((angle * Math.PI) / 180) * radius;
+          const y = Math.sin((angle * Math.PI) / 180) * radius;
           return (
             <motion.div
               key={tech.label}
@@ -130,18 +128,19 @@ const OrbitingCircles = () => {
                 rotate: 360,
                 transition: {
                   duration: 25,
-                  ease: "linear" as const,
+                  ease: "linear",
                   repeat: Infinity,
                 },
               }}
             >
-              <tech.Icon className={`w-5 h-5 lg:w-6 lg:h-6 ${tech.color}`} />
+              <tech.Icon
+                className="w-6 h-6 lg:w-7 lg:h-7"
+                style={{ color: tech.color }}
+              />
             </motion.div>
           );
         })}
       </motion.div>
-
-  {/* Floating Particles removed as requested */}
     </div>
   );
 };
