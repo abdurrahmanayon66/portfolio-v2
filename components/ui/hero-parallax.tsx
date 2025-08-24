@@ -11,7 +11,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SocialFloatingDock } from "@/components/FloatingNavigation";
 import profileImage from "../../images/formal.webp";
 
 export const HeroParallax = ({
@@ -146,8 +145,16 @@ export const Header = () => {
               <Download className="mr-2 h-6 w-6" />
               Download Resume
             </Button>
-            <div className="mt-6">
-              <SocialFloatingDock />
+            <div className="mt-6 flex gap-4 justify-center">
+              <a href="https://github.com/abdurrahmanayon66" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple-400 transition-colors">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77a5.07 5.07 0 0 0-.09-3.77S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/abdurrahmanayon" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"/><line x1="7" y1="8" x2="7" y2="16"/><line x1="7" y1="16" x2="7" y2="16"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="17" y1="8" x2="17" y2="16"/><line x1="7" y1="12" x2="17" y2="12"/></svg>
+              </a>
+              <a href="mailto:your.email@example.com" className="text-white hover:text-green-400 transition-colors">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
+              </a>
             </div>
           </motion.div>
         </motion.div>
