@@ -10,8 +10,9 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {LuDownload} from 'react-icons/lu'
+import { LuDownload } from "react-icons/lu";
 import { FiGithub, FiLinkedin, FiFacebook, FiInstagram } from "react-icons/fi";
+import { TypeAnimation } from "react-type-animation";
 
 export const HeroParallax = ({
   products,
@@ -109,7 +110,6 @@ export const Header = () => {
   const downloadResume = () => {
     alert("Resume download started!");
   };
-
   return (
     <div className="max-w-7xl relative mx-auto py-24 md:py-24 px-4 w-full left-0 top-0 z-50">
       <div className="flex flex-col items-center justify-center text-center relative z-50">
@@ -123,7 +123,24 @@ export const Header = () => {
             Abdur Rahman Ayon
             <br />
             <span className="text-4xl md:text-6xl block mt-4 font-bold text-white">
-              Full Stack Developer
+              <TypeAnimation
+                sequence={[
+                  "Full Stack Developer",
+                  1500,
+                  "Software Engineer",
+                  1500,
+                  "Clean UI & Elegant Code",
+                  1500,
+                  "Intuitive Web Experiences",
+                  1500,
+                  "Optimized & Scalable Apps",
+                  1500,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+                className="inline-block"
+              />
             </span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg md:text-2xl mt-8 text-gray-300 font-medium">
@@ -131,7 +148,6 @@ export const Header = () => {
             elegant UI, and smooth user experiences. Code with purpose, design
             with care.
           </p>
-
           <motion.div
             className="flex flex-col sm:flex-row gap-4 mt-10 justify-center items-center"
             initial={{ opacity: 0, y: 30 }}
@@ -208,7 +224,10 @@ export const ProductCard = ({
       key={product.title}
       className="group/product h-96 w-[30rem] relative flex-shrink-0"
     >
-      <Link href={product.link} className="block group-hover/product:shadow-2xl ">
+      <Link
+        href={product.link}
+        className="block group-hover/product:shadow-2xl "
+      >
         <Image
           src={product.thumbnail}
           height={600}
