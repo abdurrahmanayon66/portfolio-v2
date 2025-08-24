@@ -1,11 +1,11 @@
 "use client";
-
 import type React from "react";
 import { useState } from "react";
 
 // Import components
 import Navigation from "@/components/Navigation";
 import { HeroParallaxDemo } from "@/components/HeroParallaxDemo";
+import AboutMe from "@/components/AboutMe";
 import SkillsSection from "@/components/SkillsSection";
 import { TimelineDemo } from "@/components/TimelineDemo";
 import { ProjectsShowcase } from "@/components/ProjectsShowcase";
@@ -47,6 +47,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
       <Navigation />
       <HeroParallaxDemo />
+      <AboutMe />
       <SkillsSection />
       <ProjectsShowcase />
       <WhyChooseMe />
@@ -57,7 +58,6 @@ export default function Portfolio() {
         onInputChange={handleInputChange}
         onSubmit={handleSubmit}
       />
-
       <Footer />
     </div>
   );
