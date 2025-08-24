@@ -3,8 +3,7 @@
 import React from "react"
 import { Mail, Phone, MapPin, Send, MessageSquare, Globe, Sparkles, Zap, Code, CheckCircle, Database } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+// Removed custom Input and Textarea components; using native HTML fields
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
@@ -36,25 +35,25 @@ export default function ContactSection({ formData, onInputChange, onSubmit }: Co
     {
       icon: <Mail className="w-5 h-5" />,
       title: "Email",
-      value: "your.email@example.com",
+      value: "abdurrahmanayon66@gmail.com",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: <Phone className="w-5 h-5" />,
       title: "Phone",
-      value: "+1(555) 123-4567",
+      value: "01997642649",
       color: "from-green-500 to-emerald-500"
     },
     {
       icon: <MapPin className="w-5 h-5" />,
       title: "Location",
-      value: "Available for remote work worldwide",
+      value: "Available for on-site or remote work",
       color: "from-purple-500 to-pink-500"
     }
   ]
 
   const highlights = [
-    "6 months of international development experience",
+    "1+ year of professional development experience",
     "Full-stack web application development",
     "Modern JavaScript frameworks and libraries",
     "Database design and optimization"
@@ -205,14 +204,14 @@ export default function ContactSection({ formData, onInputChange, onSubmit }: Co
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.4, delay: 0.5 }}
                 >
-                  <Input
+                  <input
                     type="text"
                     name="name"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={onInputChange}
                     required
-                    className="bg-white/10 border-white/20 text-white placeholder-gray-400 rounded-xl h-12 backdrop-blur-sm focus:border-purple-500/50 focus:ring-purple-500/20"
+                    className="bg-transparent border-cyan-400 text-white placeholder-gray-400 rounded-md h-12 backdrop-blur-sm focus:border-purple-400 focus:outline-none focus:ring-0 focus-visible:outline-purple-400 focus-visible:outline-1 px-4 w-full"
                   />
                 </motion.div>
                 
@@ -221,14 +220,14 @@ export default function ContactSection({ formData, onInputChange, onSubmit }: Co
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.4, delay: 0.6 }}
                 >
-                  <Input
+                  <input
                     type="email"
                     name="email"
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={onInputChange}
                     required
-                    className="bg-white/10 border-white/20 text-white placeholder-gray-400 rounded-xl h-12 backdrop-blur-sm focus:border-purple-500/50 focus:ring-purple-500/20"
+                    className="bg-transparent border-cyan-400 text-white placeholder-gray-400 rounded-md h-12 backdrop-blur-sm focus:border-purple-400 focus:outline-none focus:ring-0 focus-visible:outline-purple-400 focus-visible:outline-1 px-4 w-full"
                   />
                 </motion.div>
                 
@@ -237,14 +236,14 @@ export default function ContactSection({ formData, onInputChange, onSubmit }: Co
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.4, delay: 0.7 }}
                 >
-                  <Textarea
+                  <textarea
                     name="message"
                     placeholder="Your Message"
                     value={formData.message}
                     onChange={onInputChange}
                     required
                     rows={5}
-                    className="bg-white/10 border-white/20 text-white placeholder-gray-400 rounded-xl backdrop-blur-sm focus:border-purple-500/50 focus:ring-purple-500/20 resize-none"
+                    className="bg-transparent py-4 border-cyan-400 text-white placeholder-gray-400 rounded-md backdrop-blur-sm focus:border-purple-400 focus:outline-none focus:ring-0 focus-visible:outline-purple-400 focus-visible:outline-1 resize-none px-4 w-full"
                   />
                 </motion.div>
                 
