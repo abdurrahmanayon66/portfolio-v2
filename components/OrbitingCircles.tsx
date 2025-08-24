@@ -53,29 +53,29 @@ const OrbitingCircles = () => {
       {/* Center Profile Image */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative">
-            <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-1">
+            <div className="w-48 h-48 lg:w-[320px] lg:h-[320px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-1">
             <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center overflow-hidden">
               <Image
                 src={img}
                 alt="Abdur Rahman Ayon"
-                className="w-full h-full object-cover rounded-full"
+                className="w-full h-full object-contain rounded-full"
               />
             </div>
           </div>
           {/* Glow effect */}
-          <div className="absolute inset-0 rounded-full bg-purple-500/20 blur-xl animate-pulse"></div>
+          {/* <div className="absolute inset-0 rounded-full bg-purple-500/20 blur-xl animate-pulse"></div> */}
         </div>
       </div>
 
       {/* First Orbit - Outer */}
       <motion.div
-        className="absolute inset-0 border border-purple-500/20 rounded-full"
+        className="absolute inset-8 border border-purple-500/20 rounded-full"
         variants={orbitVariants}
         animate="orbit"
       >
           {techIcons.slice(0, 4).map((tech, index) => {
             const angle = (index * 90) - 45;
-            const radius = 300;
+            const radius = 260;
             const x = Math.cos((angle * Math.PI) / 180) * radius;
             const y = Math.sin((angle * Math.PI) / 180) * radius;
 
@@ -106,13 +106,13 @@ const OrbitingCircles = () => {
 
       {/* Second Orbit - Inner */}
       <motion.div
-        className="absolute inset-8 border border-blue-500/20 rounded-full"
+        className="absolute inset-24 border border-blue-500/20 rounded-full"
         variants={reverseOrbitVariants}
         animate="orbit"
       >
           {techIcons.slice(4, 8).map((tech, index) => {
             const angle = (index * 90);
-            const radius = 180;
+            const radius = 200;
             const x = Math.cos((angle * Math.PI) / 180) * radius;
             const y = Math.sin((angle * Math.PI) / 180) * radius;
 

@@ -63,7 +63,7 @@ const AboutMe = () => {
   ];
 
   return (
-    <section className="relative py-20 lg:py-32 px-4 lg:px-16 overflow-hidden">
+    <section className="relative py-20 lg:py-32 px-4 lg:px-24 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent"></div>
@@ -74,7 +74,7 @@ const AboutMe = () => {
 
       <motion.div
         ref={ref}
-        className="relative max-w-7xl mx-auto"
+        className="relative mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
