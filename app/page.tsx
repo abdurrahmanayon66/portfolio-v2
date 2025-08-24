@@ -46,18 +46,30 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
       <Navigation />
-      <HeroParallaxDemo />
-      <AboutMe />
-      <SkillsSection />
-      <ProjectsShowcase />
+      <section id="home">
+        <HeroParallaxDemo />
+      </section>
+      <section id="about">
+        <AboutMe />
+      </section>
+      <section id="skills">
+        <SkillsSection />
+      </section>
+      <section id="projects">
+        <ProjectsShowcase />
+      </section>
       <WhyChooseMe />
       <TimelineDemo />
-      <ResumeSection onDownloadResume={downloadResume} />
-      <ContactSection
-        formData={formData}
-        onInputChange={handleInputChange}
-        onSubmit={handleSubmit}
-      />
+      <section id="resume">
+        <ResumeSection onDownloadResume={downloadResume} />
+      </section>
+      <section id="contact">
+        <ContactSection
+          formData={formData}
+          onInputChange={handleInputChange}
+          onSubmit={handleSubmit}
+        />
+      </section>
       <Footer />
     </div>
   );

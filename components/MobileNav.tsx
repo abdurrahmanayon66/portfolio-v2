@@ -3,6 +3,7 @@
 import { Sheet, SheetTrigger, SheetContent, SheetClose } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AiOutlineHome, AiOutlineUser, AiOutlineProject, AiOutlineMail, AiOutlineFileText, AiOutlineCode } from "react-icons/ai";
 import React from "react";
 
 export default function MobileNav() {
@@ -26,16 +27,40 @@ export default function MobileNav() {
         </div>
         <nav className="flex flex-col gap-6 px-6 py-8 text-lg font-medium flex-1">
           <SheetClose asChild>
-            <a href="#home" className="text-gray-200 hover:text-blue-600 transition-colors">Home</a>
+            <a href="#home" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-3">
+              <AiOutlineHome className="text-xl" />
+              Home
+            </a>
           </SheetClose>
           <SheetClose asChild>
-            <a href="#skills" className="text-gray-200 hover:text-blue-600 transition-colors">Skills</a>
+            <a href="#about" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-3">
+              <AiOutlineUser className="text-xl" />
+              About
+            </a>
           </SheetClose>
           <SheetClose asChild>
-            <a href="#projects" className="text-gray-200 hover:text-blue-600 transition-colors">Projects</a>
+            <a href="#skills" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-3">
+              <AiOutlineCode className="text-xl" />
+              Skills
+            </a>
           </SheetClose>
           <SheetClose asChild>
-            <a href="#contact" className="text-gray-200 hover:text-blue-600 transition-colors">Contact</a>
+            <a href="#projects" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-3">
+              <AiOutlineProject className="text-xl" />
+              Projects
+            </a>
+          </SheetClose>
+          <SheetClose asChild>
+            <a href="#resume" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-3">
+              <AiOutlineFileText className="text-xl" />
+              Resume
+            </a>
+          </SheetClose>
+          <SheetClose asChild>
+            <a href="#contact" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-3">
+              <AiOutlineMail className="text-xl" />
+              Contact
+            </a>
           </SheetClose>
         </nav>
         <div className="flex items-center justify-center px-6 py-4 border-t border-gray-700">

@@ -20,6 +20,7 @@ import {
   Database,
   CheckCircle
 } from "lucide-react"
+import Image from "next/image"
 
 export function TimelineDemo() {
   const ref = useRef(null)
@@ -48,7 +49,7 @@ export function TimelineDemo() {
         "Optimized application performance by 40%",
         "Mentored junior developers"
       ],
-      image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=500&h=300&fit=crop",
+      image: "/timeline/1.svg",
       color: "from-blue-500 to-cyan-500"
     },
     {
@@ -62,7 +63,7 @@ export function TimelineDemo() {
         "Collaborated using Git and Agile methodologies",
         "Optimized website performance"
       ],
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop",
+      image: "/timeline/2.svg",
       color: "from-green-500 to-emerald-500"
     },
     {
@@ -76,7 +77,7 @@ export function TimelineDemo() {
         "Learned version control with Git",
         "Worked on bug fixes and maintenance"
       ],
-      image: "https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=500&h=300&fit=crop",
+      image: "/timeline/3.svg",
       color: "from-purple-500 to-pink-500"
     },
     {
@@ -91,8 +92,8 @@ export function TimelineDemo() {
         "Web Development Technologies",
         "Final Year Project: Full-Stack Web Application"
       ],
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&h=300&fit=crop",
-      color: "from-yellow-500 to-orange-500"
+      image: "/timeline/4.svg",
+      color: "from-cyan-500 to-teal-500"
     }
   ]
 
@@ -220,12 +221,13 @@ export function TimelineDemo() {
                   className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}
                 >
                   <div className="relative group">
-                    <div className={`absolute inset-0 bg-gradient-to-r ${item.color} opacity-20 rounded-3xl blur-2xl group-hover:blur-xl transition-all duration-500`}></div>
-                    <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500">
-                      <img
+                    <div>
+                      <Image
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                        width={400}
+                        height={400}
+                        className="w-full h-64 lg:h-80 object-contain group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                   </div>

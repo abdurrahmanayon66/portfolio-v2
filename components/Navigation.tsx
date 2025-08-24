@@ -1,6 +1,7 @@
 "use client"
 
 import dynamic from "next/dynamic"
+import { AiOutlineHome, AiOutlineUser, AiOutlineProject, AiOutlineMail, AiOutlineFileText, AiOutlineCode } from "react-icons/ai"
 
 const MobileNav = dynamic(() => import("./MobileNav"), { ssr: false })
 
@@ -14,16 +15,28 @@ export default function Navigation() {
           </div>
           {/* Desktop Nav */}
           <div className="hidden sm:flex items-center space-x-6">
-            <a href="#home" className="text-gray-200 hover:text-blue-600 transition-colors">
+            <a href="#home" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-2">
+              <AiOutlineHome className="text-lg" />
               Home
             </a>
-            <a href="#skills" className="text-gray-200 hover:text-blue-600 transition-colors">
+            <a href="#about" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-2">
+              <AiOutlineUser className="text-lg" />
+              About
+            </a>
+            <a href="#skills" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-2">
+              <AiOutlineCode className="text-lg" />
               Skills
             </a>
-            <a href="#projects" className="text-gray-200 hover:text-blue-600 transition-colors">
+            <a href="#projects" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-2">
+              <AiOutlineProject className="text-lg" />
               Projects
             </a>
-            <a href="#contact" className="text-gray-200 hover:text-blue-600 transition-colors">
+            <a href="#resume" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-2">
+              <AiOutlineFileText className="text-lg" />
+              Resume
+            </a>
+            <a href="#contact" className="text-gray-200 hover:text-blue-600 transition-colors flex items-center gap-2">
+              <AiOutlineMail className="text-lg" />
               Contact
             </a>
           </div>

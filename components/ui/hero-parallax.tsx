@@ -10,8 +10,8 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Download } from "lucide-react";
-import { FiLinkedin, FiFacebook, FiInstagram, FiGithub } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
+import { SocialFloatingDock } from "@/components/FloatingNavigation";
 import profileImage from "../../images/formal.webp";
 
 export const HeroParallax = ({
@@ -146,11 +146,8 @@ export const Header = () => {
               <Download className="mr-2 h-6 w-6" />
               Download Resume
             </Button>
-            <div className="flex space-x-4 mt-2">
-              <SocialIconButton Icon={FiGithub} />
-              <SocialIconButton Icon={FiLinkedin} />
-              <SocialIconButton Icon={FiFacebook} />
-              <SocialIconButton Icon={FiInstagram} />
+            <div className="mt-6">
+              <SocialFloatingDock />
             </div>
           </motion.div>
         </motion.div>
@@ -200,22 +197,3 @@ export const ProductCard = ({
     </motion.div>
   );
 };
-
-// Reusable social icon button
-function SocialIconButton({ Icon }: { Icon: React.ElementType }) {
-  return (
-    <div className="relative size-10 rounded-full border-[2.5px] border-[#6d43eb] group group-hover:border-transparent transition-colors">
-      <div className="flex items-center justify-center w-full h-full rounded-full bg-white dark:bg-neutral-900 group-hover:bg-[#6d43eb] transition-colors">
-        <button
-          type="button"
-          className="rounded-full w-full h-full bg-transparent hover:bg-transparent flex items-center justify-center"
-        >
-          <Icon
-            size={20}
-            className="text-[#6d43eb] group-hover:text-white transition-colors"
-          />
-        </button>
-      </div>
-    </div>
-  );
-}
