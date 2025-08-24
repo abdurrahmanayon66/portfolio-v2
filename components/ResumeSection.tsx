@@ -22,9 +22,9 @@ export default function ResumeSection({ onDownloadResume }: ResumeSectionProps) 
   ]
 
   const stats = [
-    { number: "3+", label: "Years Experience", icon: <Briefcase className="h-5 w-5" /> },
-    { number: "50+", label: "Projects Completed", icon: <FileText className="h-5 w-5" /> },
-    { number: "15+", label: "Technologies", icon: <Award className="h-5 w-5" /> },
+    { number: "1+", label: "Years Experience", icon: <Briefcase className="h-5 w-5" /> },
+    { number: "15+", label: "Projects Completed", icon: <FileText className="h-5 w-5" /> },
+    { number: "10+", label: "Technologies", icon: <Award className="h-5 w-5" /> },
     { number: "100%", label: "Client Satisfaction", icon: <GraduationCap className="h-5 w-5" /> }
   ]
 

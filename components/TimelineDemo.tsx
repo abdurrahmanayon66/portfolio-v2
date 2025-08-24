@@ -107,11 +107,11 @@ export function TimelineDemo() {
       color: "from-purple-500 to-pink-500",
     },
     {
-      year: "2020-2024",
+      year: "2020 - 2024",
       title: "Bachelor of Science in Computer Science",
       subtitle: "Independent University, Bangladesh (IUB)",
       description:
-        "Completed my BSc in Computer Science with focus on software engineering, data structures, algorithms, and web technologies.",
+        "Completed my BSc in Computer Science with a focus on software engineering, algorithms, data structures, and modern web technologies. Graduated with a CGPA of 3.61.",
       achievements: [
         "Data Structures & Algorithms",
         "Software Engineering Principles",
